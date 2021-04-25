@@ -1,0 +1,35 @@
+spring:
+#  datasource:
+#    JPA 버전 .200부터는 MVCC가 적용안됨
+#    url: jdbc:h2:tcp://localhost/~/jpashop;MVCC=TRUE
+
+#    TEST 환경에서 실제 외부 디비를 사용한 것이 문제가 되는데
+#    테스트 케이스를 돌리는데 디비를 또 실제로 설치를 해야하고 귀찮다.
+#    테스틑 또 끝나고 나면 데이터가 초기화되는게 좋은데 테스트를 완전히 격리된 환경으로 해서 하는게 좋다
+#    이게바로 메모리 디비를 사용하는 것이다.
+#    스프링을 쓰면 이부분을 자유롭게 해줄 수 있다.
+#    url: jdbc:h2:tcp://localhost/~/jpashop; # 이 url을 메모리 디비로 바꿔주면 된다.
+#    url: jdbc:h2:mem:test # 메모리 디비로 바꿔줌
+#
+#    결론적으로는 스프링 부트에서는 이러한 메모리 디비 사용하는 것을 별도로 하지않아도 자동으로 해준다
+#    내용이 아예 없어도 자동으로 스프링이 테스트 디비로 잡아준다는것
+#
+#    username: sa
+#    password:
+#    driver-class-name: org.h2.Driver
+
+#  jpa:
+#    hibernate:
+#      ddl-auto: create
+#    properties:
+#      hibernate:
+#         show_sql은 system 로그에 출력하는 것
+#        show_sql: true
+#        format_sql: true
+
+logging:
+  level:
+    # logging은 logger에 출력하는 것
+    org.hibernate.SQL: debug
+    # 쿼리 파라미터를 찍으려면 hibernate.type에 trace로 준다.
+    org.hibernate.type: trace
